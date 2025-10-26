@@ -8,7 +8,7 @@ import report_generator
 import data_processor
 import gemini_client
 
-def main():
+def generate_report():
     start_time = time.time()
     
     # --- BUOC 0: DOC CONFIG, KIEM TRA VA TAO THU MUC ---
@@ -75,6 +75,6 @@ def main():
     end_time = time.time()
     print(f"\nHoàn tất! Tổng thời gian chạy: {end_time - start_time:.2f} giây.")
 
-# --- Chạy hàm main ---
-if __name__ == "__main__":
-    main()
+# --- Chạy hàm generate_report ---
+if __name__ == "__generate_report__":
+    generate_report()

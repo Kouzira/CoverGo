@@ -1,0 +1,5 @@
+{
+  "name": "Drag & Drop File Uploader",
+  "description": "A modern, responsive file uploader application built with React and Tailwind CSS. Users can select files through a file explorer or by dragging and dropping them into a designated area. The app provides a clear preview of selected files and simulates an upload process.",
+  "requestFramePermissions": []
+}
