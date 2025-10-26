@@ -36,11 +36,11 @@ def delete_contents(folder):
 @app.post("/upload")
 async def upload_files(files: List[UploadFile] = File(...)):
 
-    return FileResponse(
-        "BaoCaoTongHop_Final.html",
-        media_type="text/html",
-        filename="report.html"
-    )
+    # return FileResponse(
+    #     "BaoCaoTongHop_Final.html",
+    #     media_type="text/html",
+    #     filename="report.html"
+    # )
     saved_files = []
 
     for file in files:
