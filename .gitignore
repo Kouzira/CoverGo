@@ -1,0 +1,11 @@
+/.venv
+/BaoCaoTongHop_Final.html
+/chart
+/charts
+/data
+/raw_data
+/sector_performance_data_bar_chart_ytd.png
+/sector_performance_data_pie_chart.png
+/test.ipynb
+/test.py
+/__pycache__
