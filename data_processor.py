@@ -10,7 +10,7 @@ import gemini_client
 # --- HÀM 3: THỰC THI CODE (Giữ nguyên) ---
 def execute_charting_code(code_block, df):
     """
-    Thực thi MỘT khối code Python.
+    Thực thi một khối code Python.
     """
     try:
         exec_scope = {'df': df, 'plt': plt, 'pd': pd, 'os': os} 
