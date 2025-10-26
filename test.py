@@ -61,7 +61,7 @@ def get_charting_code_from_gemini(csv_file_path, api_key):
         prompt = f"""
         Ban la mot chuyen gia phan tich du lieu bang Python.
         Toi co mot file CSV ten la '{csv_file_path}' (cot: {csv_columns}).
-        Day la 10 dong du lieu mau:
+        Day la du lieu mau:
         {csv_sample}
 
         Nhiem vu cua ban la:
@@ -325,7 +325,7 @@ def create_html_report(analysis_text, all_charts_info, output_filename="BaoCaoTo
 # --- HÀM 6: HÀM CHAY CHINH (MAIN) - ĐÃ CẬP NHẬT ---
 def main():
     # --- Cau hinh ---
-    YOUR_API_KEY = ""
+    YOUR_API_KEY = "AIzaSyBfkA1ArqYivqu4MqHof_W874XZacCjsnY"
 
     TEMPLATE_PDF_FILE = 'bao-cao-chien-luoc-thi-truong-tuan-30-09-04-10-2024.pdf'
     
@@ -370,9 +370,6 @@ def main():
 
     for csv_file in csv_files:
         
-        # THÊM NGẮT QUÃNG ĐỂ TRÁNH LỖI 429 (GIỚI HẠN MỖI PHÚT) ---
-        print(f"\nDang nghi 20 giay de tranh loi quota API (gioi han moi phut)...")
-        time.sleep(20)
         # -----------------------------------------------------------------
 
         # 2a. Goi Gemini (Lan 1) de lay JSON
@@ -432,15 +429,10 @@ def main():
         print(f"- {chart['filename']} (Tieu de: {chart['title']})")
 
     # --- BUOC 4: GOI GEMINI (LAN 2) DE VIET BAO CAO TONG HOP ---
-    # Thêm 1 lần nghỉ nữa trước khi gọi API tổng hợp
-    print(f"\nDang nghi 20 giay de tranh loi quota API...")
-    time.sleep(20)
-    
     analysis_text = get_report_from_gemini(all_charts_info, report_template_text, YOUR_API_KEY)
 
     # --- BUOC 5: TAO FILE HTML ---
     if analysis_text:
-        # --- THAY ĐỔI CUỘC GỌI HÀM ---
         create_html_report(analysis_text, all_charts_info, OUTPUT_HTML)
     else:
         print("Khong nhan duoc phan tich tu Gemini (Lan 2). Dung chuong trinh.")
