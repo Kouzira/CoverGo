@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu: Trình tạo Báo Cáo Tự động</title>
+    <!-- Tải Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Sử dụng font Inter cho toàn bộ trang */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Thêm font Inter từ Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        /* CSS cho các icon SVG */
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            stroke-width: 2;
+        }
+        .step-icon {
+            width: 3rem;
+            height: 3rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Container chính cho scroll-snapping -->
+    <!-- Bắt buộc cuộn theo trục Y, neo vào điểm bắt đầu của mỗi slide -->
+    <div class="h-screen overflow-y-scroll snap-y snap-mandatory">
+
+        <!-- Slide 1: Tiêu đề chính -->
+        <header class="h-screen snap-start flex flex-col justify-center items-center text-center p-6 md:p-12">
+            <div class="max-w-5xl w-full">
+                <h1 class="text-4xl md:text-5xl font-bold text-blue-700 mb-4">Trình Tạo Báo Cáo Tự Động</h1>
+                <p class="text-xl text-gray-600">Biến dữ liệu CSV thô thành báo cáo HTML chuyên nghiệp với sức mạnh của AI.</p>
+            </div>
+        </header>
+
+        <!-- Slide 2: Vấn đề & Giải pháp -->
+        <section class="h-screen snap-start flex flex-col justify-center items-center p-6 md:p-12">
+            <div class="max-w-5xl w-full grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-semibold text-red-600 mb-3">Vấn đề</h2>
+                    <p>Việc tạo báo cáo thủ công từ dữ liệu tốn nhiều thời gian, dễ sai sót và thiếu nhất quán. Các nhà phân tích phải lặp đi lặp lại việc chọn biểu đồ, viết phân tích và định dạng báo cáo.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-semibold text-green-600 mb-3">Giải pháp</h2>
+                    <p>Công cụ này tự động hóa toàn bộ quy trình. Nó sử dụng Google Gemini để phân tích dữ liệu, tự động đề xuất và vẽ biểu đồ, sau đó viết một báo cáo phân tích toàn diện dựa trên một mẫu PDF có sẵn.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Quy trình hoạt động -->
+        <section class="h-screen snap-start flex flex-col justify-center items-center p-6 md:p-12">
+            <div class="max-w-5xl w-full">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Quy Trình Hoạt Động</h2>
+                <div class="grid md:grid-cols-4 gap-6 text-center">
+                    
+                    <!-- Bước 1: Đầu vào -->
+                    <div class="flex flex-col items-center p-4">
+                        <div class="flex-shrink-0 bg-blue-100 text-blue-700 rounded-full p-4 mb-4">
+                            <svg class="step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">1. Cung cấp dữ liệu</h3>
+                        <p class="text-sm text-gray-600">Người dùng chỉ cần đặt các tệp <code>*.csv</code> vào thư mục <code>/csv</code> và cung cấp một tệp <code>template.pdf</code> làm mẫu báo cáo.</p>
+                    </div>
+
+                    <!-- Bước 2: Phân tích & Vẽ biểu đồ -->
+                    <div class="flex flex-col items-center p-4">
+                        <div class="flex-shrink-0 bg-blue-100 text-blue-700 rounded-full p-4 mb-4">
+                            <svg class="step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">2. Phân tích & Vẽ biểu đồ (Gemini Lần 1)</h3>
+                        <p class="text-sm text-gray-600">Script gửi dữ liệu CSV (mẫu) đến Gemini, yêu cầu đề xuất và tạo mã Python (Matplotlib) cho 4 biểu đồ hữu ích nhất.</p>
+                    </div>
+
+                    <!-- Bước 3: Viết báo cáo -->
+                    <div class="flex flex-col items-center p-4">
+                        <div class="flex-shrink-0 bg-blue-100 text-blue-700 rounded-full p-4 mb-4">
+                            <svg class="step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">3. Phân tích tổng hợp (Gemini Lần 2)</h3>
+                        <p class="text-sm text-gray-600">Tất cả các ảnh biểu đồ đã tạo và văn bản từ PDF mẫu được gửi đến mô hình Gemini (multimodal) để viết một bài phân tích sâu, nhất quán.</p>
+                    </div>
+
+                    <!-- Bước 4: Xuất bản -->
+                    <div class="flex flex-col items-center p-4">
+                        <div class="flex-shrink-0 bg-blue-100 text-blue-700 rounded-full p-4 mb-4">
+                            <svg class="step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">4. Xuất Báo Cáo HTML</h3>
+                        <p class="text-sm text-gray-600">Script chuyển đổi Markdown (từ Gemini) sang HTML, chèn các biểu đồ vào đúng vị trí, tạo ra tệp <code>BaoCaoTongHop_Final.html</code> hoàn chỉnh.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Tính năng & Lợi ích -->
+        <section class="h-screen snap-start flex flex-col justify-center items-center p-6 md:p-12">
+            <div class="max-w-5xl w-full">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Tính Năng & Lợi Ích</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Tự động hóa -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <svg class="icon text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m-15.357-2A8.001 8.001 0 0019.418 15m0 0H15"></path></svg>
+                        <h3 class="text-xl font-semibold mb-2">Tự Động Hóa</h3>
+                        <p class="text-gray-600">Tiết kiệm hàng giờ làm việc thủ công. Chạy và nhận báo cáo chỉ trong vài phút.</p>
+                    </div>
+                    <!-- Thông minh -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <svg class="icon text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        <h3 class="text-xl font-semibold mb-2">Phân Tích Thông Minh</h3>
+                        <p class="text-gray-600">Gemini chủ động đề xuất các biểu đồ phù hợp nhất, không cần cấu hình trước.</p>
+                    </div>
+                    <!-- Nhất quán -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <svg class="icon text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        <h3 class="text-xl font-semibold mb-2">Nhất Quán</h3>
+                        <p class="text-gray-600">Sử dụng PDF mẫu đảm bảo mọi báo cáo đều tuân thủ đúng cấu trúc, văn phong và thương hiệu.</p>
+                    </div>
+                    <!-- Toàn diện -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <svg class="icon text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                        <h3 class="text-xl font-semibold mb-2">Phân Tích Sâu</h3>
+                        <p class="text-gray-600">Gemini phân tích mối liên hệ giữa các biểu đồ (multimodal) để đưa ra nhận định tổng quan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Slide 5: Cách sử dụng -->
+        <section class="h-screen snap-start flex flex-col justify-center items-center p-6 md:p-12">
+            <div class="max-w-5xl w-full">
+                <div class="bg-gray-800 text-white p-8 rounded-lg shadow-xl">
+                    <h2 class="text-3xl font-bold text-center mb-8">Cách sử dụng (Giao diện Web)</h2>
+                    <ol class="list-decimal list-inside space-y-4 max-w-2xl mx-auto">
+                        <li>Truy cập giao diện web của ứng dụng.</li>
+                        <li>Tải lên các tệp dữ liệu CSV của bạn (ví dụ: <code>danh_thu.csv</code>, <code>chi_phi.csv</code>).</li>
+                        <li>Tải lên tệp PDF mẫu (ví dụ: <code>mau_bao_cao_thang.pdf</code>) để AI học theo cấu trúc.</li>
+                        <li>Nhấn nút "Tạo Báo Cáo" và chờ hệ thống phân tích dữ liệu.</li>
+                        <li>Tải về tệp báo cáo <code>BaoCaoTongHop_Final.html</code> hoàn chỉnh khi quá trình kết thúc.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Footer -->
+        <footer class="h-screen snap-start flex flex-col justify-center items-center text-center p-6 md:p-12">
+            <div class="max-w-5xl w-full">
+                <p class="text-gray-500">Powered by Google Gemini & Matplotlib</p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
